@@ -119,5 +119,15 @@ ul {
 
 
 
-### 5. CSS 코드 작성시 도움되는 website
+### 🎨 CSS 코드 작성시 도움되는 link 
 
+* Color
+  * [Coolors](https://coolors.co/)
+  * [Flatuicolors](https://flatuicolors.com/)
+* Font
+  * [Google Fonts](https://fonts.google.com/)
+* CSS animation
+  * [Animate.css](https://daneden.github.io/animate.css/)
+
+* Favicon
+  * [Favicon generator](https://www.favicon-generator.org/)
