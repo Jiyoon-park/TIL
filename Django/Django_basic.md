@@ -38,11 +38,13 @@ $ django-admin startproject blahblah
 * blahblah 폴더의 settings.py 파일 수정하기
 
     ```bash
-    # 28번째 줄
+    # 28번째 줄_호스트 설정
     ALLOWED_HOST = ['*']
-
-    # 106번째 줄 
+    
+    # 106번째 줄_언어 설정 
     LANGUAGE_CODE = 'ko-KR'
+    
+    # 그 아래_시간 설정
     TIME_ZONE = 'Asia/Seoul'
     ```
 
@@ -67,7 +69,7 @@ $ django-admin startproject blahblah
 
 
 
-### ✨기억하세요✨
+### ✨기억하세요 순서✨
 
 1. `urls.py`
 
@@ -111,7 +113,3 @@ $ django-admin startproject blahblah
 * `ctrl` + `c` : 서버 종료
 
 
-
-`박지윤이 쏘아올린 첫 장고 로켓( 2020-03-26 )`
-
-![인생 첫 장고](images/인생 첫 장고.JPG)
