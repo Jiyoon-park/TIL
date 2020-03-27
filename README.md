@@ -16,14 +16,14 @@
 
 #### Python
 
-* [Python_basic]()
-* [OOP]()
+* [Python_basic](https://github.com/Jiyoon-park/TIL/blob/master/Python/Python_basic.md)
+* [OOP](https://github.com/Jiyoon-park/TIL/blob/master/Python/OOP.md)
 
 #### Bootstrap Library
 
 #### Django Framework
 
-* [Django_basic]()
+* [Django_basic](https://github.com/Jiyoon-park/TIL/blob/master/Django/Django_basic.md)
 
 #### Data Science
 
