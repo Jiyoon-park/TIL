@@ -16,7 +16,17 @@
 
 #### Python
 
+* [Python_basic]()
+* [OOP]()
+
 #### Bootstrap Library
 
 #### Django Framework
 
+* [Django_basic]()
+
+#### Data Science
+
+* [pandas_데이터 바꾸기]()
+* [pandas_데이터 읽기]()
+* [pandas_큰 데이터 다루기]()
