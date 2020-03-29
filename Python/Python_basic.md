@@ -4,9 +4,9 @@
 
 
 
-### 자료형
+## 자료형
 
-#### 1. number `immutable`
+### 1. number `immutable`
 
 > integer : 정수형 / float : 실수형
 
@@ -22,7 +22,7 @@
 
     
 
-#### 2. string `immutable`
+### 2. string `immutable`
 
 > 큰따옴표(`"`)나 작은따옴표(`'`) 로 문자를 둘러싸면 문자열이 된다.
 >
@@ -60,29 +60,31 @@
 
 * 문자열 포맷팅
 
-  1) `%` 
+  1.`%` 
 
   * `%s` : 문자열
-  
-	* `%d` : 정수
-  
+
+  * `%d` : 정수
+
       ```python
       num = 3
       print('I have %s apples' % num) # 결과값 I have 3 apples
       print('I have %d apples' % num) # 결과값 I have 3 apples
-	    ```
+      ```
       
   * `%f` : 부동소수
-  
+
       ```python
       print("%0.3f" % 1.24541254) # 결과값 1.245 
       print("%0.4f" % 1.24541254) # 결과값 1.2454 
       print("%0.5f" % 1.24541254) # 결과값 1.24541
       ```
-  
+
   * `%%` : %
+
   
-  2) `format()`
+
+  2.`format()`
 
   ```python
     print("{} {}".format('I', 'did')) # 결과값 'I did'
@@ -95,22 +97,25 @@
     number = 1.24541254
     print("{0:0.3f}".format(number)) # 결과값 1.245
     ```
-
-  3) `f` 문자열
+  
+  3.`f스트링`
+  
   ```python
-num = 3
-print(f'i have {num} apples.') # 결과값 i have 3 apples.
+  num = 3
+  print(f'I have {num} apples') # 결과값 I have 3 apples
   ```
+  
+  
 
 
 
-#### 3. list 
+### 3. list 
 
-#### 4. tuple `immutable`
+### 4. tuple `immutable`
 
-#### 5. dictionary
+### 5. dictionary
 
-#### 6. set
+### 6. set
 
-#### 7. bool `immutable`
+### 7. bool `immutable`
 
