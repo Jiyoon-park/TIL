@@ -4,7 +4,7 @@
 
 
 
-### 1. Variables
+## 1. Variables
 
 ```html
 {{ variable }}
@@ -24,7 +24,7 @@
 
 
 
-### 2. Tags
+## 2. Tags
 
 ```html
 <!-- 몇개는 닫는 태그가 꼭 필요한 태그들도 있다-->
@@ -61,7 +61,7 @@ you can learn more tags here: [built-in tag reference](https://docs.djangoprojec
 
 
 
-### 3. filter
+## 3. filter
 
 * length 
 
@@ -106,7 +106,7 @@ you can learn more filters here: [built-in filter reference](https://docs.django
 
 
 
-### 4. comments
+## 4. comments
 
 ```html
 {# comments #}
@@ -120,7 +120,7 @@ Good morning
 
 
 
-### 5. template inheritance
+## 5. template inheritance
 
 > 'base.html' 의 템플릿 상속을 통해 자식 템플릿에 공통적인 *__뼈대__* 를 제공해 줄 수 있다.
 >
