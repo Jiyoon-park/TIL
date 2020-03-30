@@ -24,9 +24,10 @@
 #### Django Framework
 
 * [Django_basic](https://github.com/Jiyoon-park/TIL/blob/master/Django/Django_basic.md)
+* [DTL(Django Template Language)](https://github.com/Jiyoon-park/TIL/blob/master/Django/DTL.md)
 
 #### Data Science
 
-* [pandas_데이터 바꾸기]()
-* [pandas_데이터 읽기]()
-* [pandas_큰 데이터 다루기]()
+* [pandas_데이터 바꾸기]([https://github.com/Jiyoon-park/TIL/blob/master/Data_Science/pandas_%EB%8D%B0%EC%9D%B4%ED%84%B0%20%EB%B0%94%EA%BE%B8%EA%B8%B0.ipynb](https://github.com/Jiyoon-park/TIL/blob/master/Data_Science/pandas_데이터 바꾸기.ipynb))
+* [pandas_데이터 읽기]([https://github.com/Jiyoon-park/TIL/blob/master/Data_Science/pandas_%EB%8D%B0%EC%9D%B4%ED%84%B0%20%EC%9D%BD%EA%B8%B0.ipynb](https://github.com/Jiyoon-park/TIL/blob/master/Data_Science/pandas_데이터 읽기.ipynb))
+* [pandas_큰 데이터 다루기]([https://github.com/Jiyoon-park/TIL/blob/master/Data_Science/pandas_%ED%81%B0%20%EB%8D%B0%EC%9D%B4%ED%84%B0%20%EB%8B%A4%EB%A3%A8%EA%B8%B0.ipynb](https://github.com/Jiyoon-park/TIL/blob/master/Data_Science/pandas_큰 데이터 다루기.ipynb))
