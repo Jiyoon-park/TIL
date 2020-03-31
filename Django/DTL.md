@@ -181,7 +181,7 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         # 여기 아래 'DIRS' 부분 추가해주기
         # APP 내에 있는 폴더 아닌 추가적으로 활용하고 싶은 템플릿의 경로 / BASE_dIR는 root.
-        'DIRS': [os.path.join(BASE_DIR, 'djanog-intro', 'templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'django-intro', 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
