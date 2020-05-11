@@ -205,3 +205,26 @@ urlpatterns = [
 ]
 ```
 
+
+
+# Postman : for API Development
+
+https://www.postman.com/
+
+* 프로그램 다운로드
+
+  [Postman](https://www.postman.com/downloads/)
+
+* postman interceptor 다운로드
+
+  [postman interceptor](https://chrome.google.com/webstore/detail/postman-interceptor/aicmkgpgakddgnaphhhpliifpcfhicfo?hl=en)
+
+* postman_capture requests and cookies
+
+  Cookies/Capture Cookies -> ON
+
+  Cookies/Domains -> (http://)...com 등록
+
+  Requests/Interceptor/Capture Requests -> ON
+
+  
