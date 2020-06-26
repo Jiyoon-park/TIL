@@ -106,8 +106,3 @@ $ python manage.py shell_plus
 
 
 
-목록페이지 이해 안감
-
-redirect 도 모르겠음
-
-django-extensions ipython 이 친구는 언제 사용...?

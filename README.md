@@ -14,6 +14,8 @@
 
 #### JavaScript
 
+* [핵심개념]([https://github.com/Jiyoon-park/TIL/blob/master/JavaScript/Javascript%20%ED%95%B5%EC%8B%AC%EA%B0%9C%EB%85%90.md](https://github.com/Jiyoon-park/TIL/blob/master/JavaScript/Javascript 핵심개념.md))
+
 #### Python
 
 * [Python_basic](https://github.com/Jiyoon-park/TIL/blob/master/Python/Python_basic.md)
@@ -27,7 +29,7 @@
 * [DTL(Django Template Language)](https://github.com/Jiyoon-park/TIL/blob/master/Django/DTL.md)
 * [Migration](https://github.com/Jiyoon-park/TIL/blob/master/Django/Migration.md)
 * [MultipleApp](https://github.com/Jiyoon-park/TIL/blob/master/Django/Multiple_app.md)
-* [ORM(Object Relational Mapper)]([https://github.com/Jiyoon-park/TIL/blob/master/Django/Django%20ORM(Object%20Relational%20Mapper).md](https://github.com/Jiyoon-park/TIL/blob/master/Django/Django ORM(Object Relational Mapper).md)
+* [ORM(Object Relational Mapper)]([https://github.com/Jiyoon-park/TIL/blob/master/Django/Django%20ORM(Object%20Relational%20Mapper).md](https://github.com/Jiyoon-park/TIL/blob/master/Django/Django ORM(Object Relational Mapper).md))
 
 #### Data Science
 
