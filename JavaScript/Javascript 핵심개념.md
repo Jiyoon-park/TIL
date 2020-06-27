@@ -148,6 +148,8 @@ console.log(a);
 
 ### 5) 콜백함수
 
+> 호출해서 돌려줄 함수
+>
 > call / back => something will `call` this function `back` sometime somehow.
 >
 > * 특징
@@ -163,3 +165,166 @@ setInterval(function() {	// 인자1. 콜백함수
 }, 1000);	// 인자2. 실행주기
 ```
 
+
+
+## 3. this
+
+> 실행 콘텍스트가 활성화 될 때 this가 바인딩 된다. / 호출 방식에 따라 this가 동적으로 바인딩 => 호출 형태를 잘 보기!
+
+
+
+### 1) 전역공간에서
+
+> window / global
+
+
+
+### 2) 함수 호출시
+
+> window / global
+
+
+
+### 3) 메소드 호출시
+
+>메소드 호출 주체 ( 메소드명 앞)
+
+
+
+```javascript
+var a = 10;
+var obj = {
+    a: 20,
+    b: function() {
+        console.log(this.a); // 20 => this는 obj
+        
+        function c() {
+            console.log(this.a); // 10 => this는 window
+        }
+        c();
+    }
+}
+obj.b();
+```
+
+```javascript
+var a = 10;
+var obj = {
+    a: 20,
+    b: function() {
+        var self = this;
+        console.log(this.a); // 20 => this는 obj
+        
+        function c() {
+            console.log(self.a); // 20 => self는 obj
+        }
+        c();
+    }
+}
+obj.b();
+```
+
+=> 지금은 arrow function을 사용.
+
+
+
+### 4) callback 호출시
+
+> 기본적으로 함수내부에서와 동일 => 전역객체를 본다.
+>
+> but, 제어권을 가진 함수가 callback의 this를 명시한 경우에는 그에 따른다.
+>
+> but, 개발자가 this를 바인딩한 채로 callback을 넘기면 그에 따른다.
+
+* call => 두번째 매개변수는 무한대로 나열가능 => 즉시호출
+* apply => 두번째 매개변수는 배열 => 즉시호출
+* bind => 두번째 매개변수는 무한대로 나열가능 => 새로운 함수 생성 => this 설정 가능.
+
+
+
+```javascript
+var callback = function() {
+    console.dir(this);
+};
+
+var obj = {
+    a: 1,
+    b: function(cb) {
+        cb(); // window
+    }
+};
+obj.b(callback);
+```
+
+```javascript
+var callback = function() {
+    console.dir(this);
+};
+
+var obj = {
+    a: 1,
+    b: function(cb) {
+        cb.call(this); // obj
+    }
+};
+obj.b(callback);
+```
+
+
+
+```javascript
+var callback = function() {
+    console.dir(this);
+};
+
+var obj = {
+    a: 1
+};
+setTimeout(callback, 100); // window
+```
+
+```javascript
+var callback = function() {
+    console.dir(this);
+};
+
+var obj = {
+    a: 1
+};
+setTimeout(callback.bind(obj), 100); // obj
+```
+
+
+
+```javascript
+document.getElementById('a').addEventListener('click', function() {
+    console.dir(this);	// #a
+});
+```
+
+```javascript
+document.getElementById('a').addEventListener('click', function() {
+    console.dir(this);	// obj
+}.bind(obj));
+```
+
+
+
+### 5) 생성자함수 호출시
+
+> 인스턴스
+
+```javascript
+function Person(n, a) {
+    this.name = n;
+    this.age = a;
+};
+var gomugom = new Person('고무곰', 30);
+console.log(gomugom);
+```
+
+
+
+## 4. closure
+
+> 클로저는 함수와 함수가 선언된 lexical environment의 조합이다.
