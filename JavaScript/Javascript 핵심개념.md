@@ -327,4 +327,78 @@ console.log(gomugom);
 
 ## 4. closure
 
-> 클로저는 함수와 함수가 선언된 lexical environment의 조합이다.
+> 클로저는 함수와 함수가 선언된 lexical environment의 조합이다 = 실행컨텍스트A와 함수B의 콤비
+>
+> B의 outerEnvironmentReference는 A의 environmentRecord를 참조.
+>
+> **컨텍스트A에서 선언한 변수를 내부함수B에서 접근할 경우에만 발생하는 특수한 현상.**
+
+```javascript
+var outer = function () {
+    var a = 1;
+    var inner = function () {
+        console.log(++a);
+    };
+    inner();
+}
+outer();
+```
+
+```javascript
+var outer = function () {
+    var a = 1;
+    return inner = function () {
+        return ++a);
+    };
+    return inner;
+}
+var outer2 = outer();
+console.log(outer2());
+console.log(outer2());
+```
+
+=> 컨텍스트 A에서 선언한 변수 a를 참조하는 내부함수 B를 A의 외부로 전달할 경우, A가 종료된 이후에도 a가 사라지지 않는 현상.
+
+=> 지역변수가 함수 종료 후에도 사라지지 않게 할 수 있다 = 함수 종료후에도 사라지지 않는 지역변수를 만들 수 있다!
+
+=> 초기화 용도로 closure을 사용하면 좋다.
+
+```javascript
+function a() {
+    var localA = 1;
+    var localB = 2;
+    var localC = 3;
+    return {
+        get a() { return localA;},
+        set a(v) { localA = v; },
+        get b() { return localB + localC; },
+        set b(v) { throw Error('read only'); }
+    }
+}
+var obj = a();
+```
+
+
+
+### clousure로 private member 만들기
+
+* why
+
+  1) 외부로부터 접근 제어
+
+  2) 전역 스코프의 변수를 최소화
+
+* how
+
+  1) 함수에서 지역변수 및 내부함수 등을 생성한다.
+
+  2) 외부에 노출시키고자 하는 멤버들로 구성된 객체를 return 한다.
+
+  ​	=> return 한 객체에 포함되지 않은 멤버들은 private 하다.
+
+  ​	=> return 한 객체에 포함된 멤버들은 public하다.
+
+  
+
+=> 외부로부터의 접근 권한 제어해 지역변수 보호 => 그러면서도 데이터 활용 가능
+
