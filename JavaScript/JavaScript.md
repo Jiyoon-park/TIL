@@ -16,7 +16,7 @@
 
 * Primitive Type 
 
-  >  값을 그대로 할당
+  >  값을 그대로 할당한다. 문자열이면 문자열, 숫자면 숫자 오직 하나의 데이터 타입만을 나타낼 수 있다.
 
   * Number
     * 정수(`+2**53` < x < `-2**53`)
@@ -37,16 +37,40 @@
 
 * Reference Type 
 
-  >  값이 저장된 주소값을 할당(참조) => 키와 값으로 구성된 기본형 데이터의 집합
+  >  값이 저장된 주소값을 할당(참조)한다. 키와 값으로 구성된 기본형 데이터의 집합이나 복잡한 객체와 같은 다양한 데이터를 담을 수 있다.
 
   * Object
 
-    > `let obj = { 키:값, 키:값, ..., }` ( `키:값` = `프로퍼티`)
+    >  `let obj = { 키:값, 키:값, ..., }` ( `키:값` = `프로퍼티`)
+>
+    > 객체는 중괄호(`{}`) 안에 키와 값, 쌍으로 구성된 프로퍼티를 여러개 넣을 수 있다. 키엔 문자형, 값엔 모든 자료형이 허용된다. 키를 이용해서 해당하는 프로퍼티를 쉽게 찾아 읽거나 수정, 삭제가 가능하다. 추가도 마찬가지이다.
 
-    * Function
-    * Array
-    * RegExp
+    ```javascript
+    let dog = {
+        name: 'hope',
+        age: 2,
+    };
+    // 객체 dog에는 'name' 과 'age' 이름을 가진 두 개의 프로퍼티가 존재한다. 
+    
+    console.log(dog.name) // 'hope'
+    console.log(dog[age]) // 2
+    
+    dog.color = 'grey';
+    console.log(dog) // { name: 'hope', age: 2, color: 'grey'}
+    
+    dog["like swimming"] = true;
+    console.log(dog) // { name: 'hope', age: 2, color: 'grey', like swimming: true}
+    
+    dog.age = 10;
+    console.log(dog) // { name: 'hope', age: 2, color: 'grey'}
+    
+    delete user.age
+    console.log(dog) // { name: 'hope', color: 'grey'}
+    ```
 
+- 객체 : function, array, regexp, error, date --- 
+
+ 
 
 
 * typeof  ( 타입 연산자)
@@ -114,3 +138,7 @@
   
 
   
+
+## this
+
+자바스크립트에서 `this`는 런타임에 결정됩니다. 메서드가 어디서 정의되었는지에 상관없이 `this`는 ‘점 앞의’ 객체가 무엇인가에 따라 ‘자유롭게’ 결정됩니다. 함수(메서드)를 하나만 만들어 여러 객체에서 재사용할 수 있다는 것은 장점이지만, 이런 유연함이 실수로 이어질 수 있다는 것은 단점입니다.
