@@ -1,35 +1,50 @@
 ## 📚 Today I Learned 📚
 
-> * 하루하루 새롭게 배우고 깨지고 성장한 기록을 남깁니다(시시콜콜 싹 다)
+> * 하루하루 새롭게 배우고 깨지고 성장한 기록을 남깁니다
 > * 공부하는 습관을 기르기 위한 노력
-> * 1일 1 commit 시작( 2020-03-24~ ) => 주객전도 현상으로 중단.
 
 ---
 
-#### HTML
+#### GIT
 
-#### CSS
+* git 
 
-* [CSS_basic](https://github.com/Jiyoon-park/TIL/blob/master/CSS/CSS_Basic.md)
+#### CS
 
-#### JavaScript
+* 운영체제
+* 자료구조
+* 스택과 큐
+* OSI 7계층
+* recursion
+
+#### HTML/CSS
+
+* HTML 개념공부
+
+* CSS_basic
+* CSS 개념공부
+
+#### Javascript
 
 * 핵심개념
+* critical rendering path
+* function
 
 #### Python
 
-* [Python_basic](https://github.com/Jiyoon-park/TIL/blob/master/Python/Python_basic.md)
-* [OOP](https://github.com/Jiyoon-park/TIL/blob/master/Python/OOP.md)
+* Python_basic
 
-#### Bootstrap Library
+* OOP
 
-#### Django Framework
+#### Django
 
-* [Django_basic](https://github.com/Jiyoon-park/TIL/blob/master/Django/Django_basic.md)
-* [DTL(Django Template Language)](https://github.com/Jiyoon-park/TIL/blob/master/Django/DTL.md)
-* [Migration](https://github.com/Jiyoon-park/TIL/blob/master/Django/Migration.md)
-* [MultipleApp](https://github.com/Jiyoon-park/TIL/blob/master/Django/Multiple_app.md)
+* Django_basic
+* DTL(Django Template Language)
+* Migration
+* MultipleApp
 * ORM(Object Relational Mapper)
+* DRF(Django REST framework)
+* from_요청처리
 
 #### Data Science
 
