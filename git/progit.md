@@ -21,6 +21,12 @@
 
 
 
+#### git workflow
+
+* working dir -- (add) -- staging area -- (commit) -- .git fir -- (push) -- remote repo
+
+
+
 ## 2. Git 의 기초
 
 ### 2-1. Git 저장소 만들기
@@ -94,7 +100,7 @@ $ git log
 #최근 n개 커밋 조회
 $ git log -<n>
 
-#각 커밋의 diff 결과 조회
+#각 커밋의 diff 결과 조회 (자세히 알고싶어!)
 $ git log -p
 $ git log --patch
 
@@ -109,6 +115,24 @@ $ git log --pretty=format
 
 #브랜치를 그래프로 출력
 $ git log --graph
+
+#브랜치 원라인으로 그래프로 출력
+$ git log --oneline --graph
+
+#bree가 커밋한 것만
+$ git log --author="bree"
+
+#2020-12-01 이전의 커밋만
+$ git log --before="2020-12-01"
+
+#원하는 string이 커밋 타이틀에 들어간 것만
+$ git log --grep="{target_str}"
+
+#원하는 string이 소스코드 컨텐츠 안에 들어간 것만
+$ git log -S "{target_str}"
+
+#원하는 파일의 커밋만 보고 싶어
+$ git log <file_name>
 ```
 
 
@@ -157,11 +181,75 @@ $ git remote rename <old_remote_name> <new_remote_name>
 $ git remote remove <remote>
 ```
 
-#### 2-6 tag, 2-7 alias 는 아직
+#### 2-6 tag
+
+> 특정 커밋을 북마크해두고 싶을 때. 보통 릴리즈 버전을 이용할 때 사용한다.
+
+* v2.0.0
+
+  * major
+
+    커다란 기능 추가, 전체적 업데이트
+
+  * minor
+
+    커다란 기능 중 조금의 기능들 업데이트
+
+  * fix
+
+    기존 기능의 오류 수정, 성능의 개선
+
+```bash
+#태그를 남기고 싶다면?
+$ git tag v2.0.0 <commit_code>
+
+#조금 더 자세한 태그를 남기고 싶다면?
+$ git tag v1.0.0 <commit_code> -am "{msg_info}"
+
+#태그 다 조회
+$ git tag
+
+#특정 버전이 포함된 태그만 보고 싶어
+$ git tag -l "v1.0.*"
+
+#특정 태그 삭제
+$ git tag -d v.1.0
+
+#원하는 태그로 이동
+$ git checkout v2.0.0
+```
+
+
+
+#### 2-7 alias 는 아직
 
 https://git-scm.com/book/ko/v2/Git-%EB%B8%8C%EB%9E%9C%EC%B9%98-%EB%B8%8C%EB%9E%9C%EC%B9%98%EB%9E%80-%EB%AC%B4%EC%97%87%EC%9D%B8%EA%B0%80
 
 
+
+#### +) 추가적으로 알아둘 것
+
+```bash
+#현재 head의 이전 부모로 이동
+$ git checkout head~1
+
+#현재 head의 이전이전 부모로 이동
+$ git checkout head~2
+
+#현재 head의 이전이전이전 부모로 이동
+$ git checkout head~3
+
+#오래된 커밋부터 보기
+$ git log --oneline --reverse
+
+#원하는 정보를 예쁘게 포맷해 보기
+$ git log --pretty=oneline
+$ git log --pretty=format:"%h %an %ar %s"
+$ git log --oneline --graph --all
+
+#git hist 설정하기
+$ git config --global alias.hist "log --graph --all --pretty=format:'%C(yellow)[%ad]%C(reset) %C(green)[%h]%C(reset) | %C(white)%s %C(bold red){{%an}}%C(reset) %C(blue)%d%C(reset)' --date=short"
+```
 
 
 
@@ -212,7 +300,40 @@ $ git merge <target_branch>
 
 #### fast-forward merges
 
+히스토리에 머지되었다는 사실이 남지 않는다.
+
+```bash
+#fast-forward commit 남기기
+$ git merge --no-ff feature-c
+```
+
 #### three-way merges
+
+```bash
+$ git checkout -b feature-c
+
+$ git echo cc > c.txt
+
+$ git add .
+
+$ git commit -m "c branch"
+
+$ git checkout master
+
+```
+
+### rebase
+
+* 다른 개발자와 함께 같은 브랜치에서 작업 중이라면 하지 말아야 한다. 서버에 업데이트 되지 않은 나의 로컬에 한해서 해야한다.
+* 브랜치에서 나 혼자 작업하거나 로컬에서 작업할 때 굉장히 유용
+
+```bash
+$ git rebase master
+
+$ git rebase --onto
+```
+
+
 
 
 
