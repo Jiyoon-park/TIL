@@ -1,6 +1,5 @@
 # ProGit
 
-* 1, 2, 3, 5 먼저 볼 것
 * https://git-scm.com/book/ko/v2
 
 ## 1. 시작하기
@@ -116,8 +115,11 @@ $ git log --pretty=format
 #브랜치를 그래프로 출력
 $ git log --graph
 
-#브랜치 원라인으로 그래프로 출력
+#로그 원라인으로 그래프로 출력
 $ git log --oneline --graph
+
+#로그 원라인으로, 브랜치가 가리키는 커밋 확인
+$ git log --oneline --decorate
 
 #bree가 커밋한 것만
 $ git log --author="bree"
@@ -242,7 +244,7 @@ $ git checkout head~3
 #오래된 커밋부터 보기
 $ git log --oneline --reverse
 
-#원하는 정보를 예쁘게 포맷해 보기
+#원하는 정보를 예쁘게 포맷
 $ git log --pretty=oneline
 $ git log --pretty=format:"%h %an %ar %s"
 $ git log --oneline --graph --all
@@ -253,13 +255,15 @@ $ git config --global alias.hist "log --graph --all --pretty=format:'%C(yellow)[
 
 
 
----
 
-따로 학습
 
-## branch
+## Git 브랜치
 
-병렬적으로 업무 가능.
+### 3-1. 브랜치란 무엇인가
+
+> 코드를 통째로 복사하고 원래 코드와 상관없이 독립적으로 개발 진행이 가능하게 하는 것이다. 덕분에 병렬적으로 개발이 가능하다.
+
+* HEAD : 현재 작업 중인 브랜치
 
 ```bash
 #로컬 브랜치 확인
@@ -285,46 +289,91 @@ $ git branch -d <branch_name>
 #브랜치 이름 변경
 $ git branch --move <old_branch_name> <new_branch_name>
 
+#브랜치 + 각 브랜치의 마지막 커밋
 $ git branch -v 
+
+#현재 브랜치 기준으로 이미 merge된 브랜치 확인 - '*' 붙은 브랜치 제외하고 삭제해도 됨.
 $ git branch --merged
+
+#현재 브랜치 기준으로 아직 merge 안 된 브랜치 확인
 $ git branch --no-merged
+
+#특정 브랜치 기준으로 merge 안 된 브랜치 확안
+$ git branch --no-merged <target_branch>
 ```
 
-## merge
+
+
+### 3-2. 브랜치와 merge의 기초
+
+* fast-forward merges 
+
+  > master가 target_branch의 조상인 경우, fast-forward merge가 가능하다.  작업이 끝나면 마스터로 checkout 한 후, 타겟 브랜치를 merge 하면 된다. 결과적으로, master 브랜치가 최신 커밋으로 이동하고 최신 커밋을 브랜치가 가르키게 된다. 이 방법은 히스토리에 머지되었다는 사실이 남지 않는다.(깔끔한 것은 장점이지만, 히스토리가 남지 않는다는 것은 단점일수도.) 
 
 ```bash
+$ git checkout master
 $ git merge <target_branch>
-```
 
-
-
-#### fast-forward merges
-
-히스토리에 머지되었다는 사실이 남지 않는다.
-
-```bash
 #fast-forward commit 남기기
 $ git merge --no-ff feature-c
 ```
 
-#### three-way merges
+* three-way merges
+
+  >각 브랜치가 가리키는 커밋 두개와 공통 조상 하나를 사용해 커밋 3개를 머지하는 방법을 three-way merge라 한다. 단순 브랜치 포인터의 이동이 아니라, 3-way merge를 진행한 결과를 별도의 커밋으로 만들고 그 결과를 브랜치가 가리키도록 한다.
+
+* conflict
+
+  > merge 하는 두 브랜치가 같은 파일의 같은 부분을 수정했을 때 일어난다. Git이 어떤 코드를 살려야할 지 모르기에, 개발자가 충돌을 해결하고 merge를 진행해야 한다.
+
+  ```bash
+  #1.충돌이 난 파일을 살펴보고
+  $ git status
+  
+  #2.충돌을 해결한다.
+  
+  #3.해결한 파일을 git에 저장한다.
+  $ git add <file_name>
+  ```
+
+
+
+### 3-5 / 3-6 다시 봐야돼. 아직 이해 못했잖아.
+
+### 3-5. 리모트 브랜치 
 
 ```bash
-$ git checkout -b feature-c
-
-$ git echo cc > c.txt
-
-$ git add .
-
-$ git commit -m "c branch"
-
-$ git checkout master
-
+#리모트 레포의 모든 리모트 브랜치와 정보 조회
+$ git remote show <remote_repo_name>
 ```
 
-### rebase
+> * remote branch
+>
+> * remote tracking branch
+>
+>   리모트 브랜치를 추적하는 레퍼런스이자 브랜치이다. 일종의 북마크이며 로컬에서 임의로 움직일 수 없다. 리모트 서버에 연결할 때마다 리모트 브랜치 업데이트 내용에 따라 자동 갱신된다. 
 
-* 다른 개발자와 함께 같은 브랜치에서 작업 중이라면 하지 말아야 한다. 서버에 업데이트 되지 않은 나의 로컬에 한해서 해야한다.
+```bash
+#로컬 브랜치 리모트 저장소로 전송
+$ git push <remote_repo_name> <local_branch>
+
+#로컬에 리모트 브랜치 정보 업데이트
+$ git fetch <remote_repo_name>
+
+#로컬에 리모트 브랜치 정보를 머지하려면
+$ git merge <remote_branch>
+
+#fetch + merge
+$ git pull <remote_branch>
+```
+
+
+
+### 3-6. Rebase하기
+
+* 서로 다른 브랜치를 하나로 합치는 것으로 merge와 목적은 같지만 rebase는 깔끔한 선형 히스토리를 만들 수 있다. 보통 리모트 브랜치에서 커밋을 깔끔하게 적용하고 싶을 때 사용한다.
+
+* 다른 개발자와 함께 같은 브랜치에서 작업 중이라면 하지 말아야 한다. 서버에 업데이트 되지 않은 나의 로컬에 한해서 해야한다. 
 * 브랜치에서 나 혼자 작업하거나 로컬에서 작업할 때 굉장히 유용
 
 ```bash
